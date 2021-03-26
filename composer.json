@@ -1,21 +1,20 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "ditscheri/laravel-throttle-snooping",
+    "description": "laravel-throttle-snooping",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "laravel-throttle-snooping"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/ditscheri/laravel-throttle-snooping",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
+            "name": "Daniel Bakan",
+            "email": "daniel@ditscheri.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^7.4|^8.0",
         "spatie/laravel-package-tools": "^1.4.3",
         "illuminate/contracts": "^8.0"
     },
@@ -29,13 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src",
-            "Spatie\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Ditscheri\\ThrottleSnooping\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Ditscheri\\ThrottleSnooping\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +47,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "Ditscheri\\ThrottleSnooping\\ThrottleSnoopingServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "ThrottleSnooping": "Ditscheri\\ThrottleSnooping\\ThrottleSnoopingFacade"
             }
         }
     },
