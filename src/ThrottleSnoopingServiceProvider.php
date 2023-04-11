@@ -26,7 +26,7 @@ class ThrottleSnoopingServiceProvider extends PackageServiceProvider
         $kernel = $this->app->make(Kernel::class);
 
         foreach (config('throttle-snooping.middleware', []) as $middlewareGroup) {
-            $kernel->appendMiddlewareToGroup($middlewareGroup, ThrottleSnoopingMiddleware::class);
+            $kernel->prependMiddlewareToGroup($middlewareGroup, ThrottleSnoopingMiddleware::class);
         }
     }
 }
