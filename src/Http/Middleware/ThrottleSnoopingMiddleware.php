@@ -6,7 +6,6 @@ use Closure;
 use Ditscheri\ThrottleSnooping\SnoopingRateLimiter;
 use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class ThrottleSnoopingMiddleware
