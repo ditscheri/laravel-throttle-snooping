@@ -38,7 +38,7 @@ class ThrottleSnoopingMiddleware
     {
         return $response instanceof SymfonyResponse
             && in_array(
-                $response->status(),
+                $response->getStatusCode(),
                 config('throttle-snooping.status_codes', [])
             );
     }
