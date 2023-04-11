@@ -7,6 +7,7 @@ use Ditscheri\ThrottleSnooping\SnoopingRateLimiter;
 use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class ThrottleSnoopingMiddleware
 {
@@ -36,7 +37,7 @@ class ThrottleSnoopingMiddleware
 
     protected function looksLikeSnooping($response): bool
     {
-        return $response instanceof Response
+        return $response instanceof SymfonyResponse
             && in_array(
                 $response->status(),
                 config('throttle-snooping.status_codes', [])
