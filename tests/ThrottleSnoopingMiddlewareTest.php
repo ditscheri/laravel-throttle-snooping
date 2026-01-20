@@ -22,7 +22,7 @@ class ThrottleSnoopingMiddlewareTest extends TestCase
         $this->assertSame(1, app(SnoopingRateLimiter::class)->attempts($request));
     }
 
-    public function snoopingStatusCodes()
+    public static function snoopingStatusCodes()
     {
         return [
             [401],
@@ -42,7 +42,7 @@ class ThrottleSnoopingMiddlewareTest extends TestCase
         $this->assertSame(0, app(SnoopingRateLimiter::class)->attempts($request));
     }
 
-    public function friendlyStatusCodes()
+    public static function friendlyStatusCodes()
     {
         return [
             [200],

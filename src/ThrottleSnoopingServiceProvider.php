@@ -21,7 +21,7 @@ class ThrottleSnoopingServiceProvider extends PackageServiceProvider
             ->hasConfigFile();
     }
 
-    public function packageBooted()
+    public function packageBooted(): void
     {
         $kernel = $this->app->make(Kernel::class);
 

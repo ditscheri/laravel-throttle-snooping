@@ -6,7 +6,7 @@ use Closure;
 use Ditscheri\ThrottleSnooping\SnoopingRateLimiter;
 use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class ThrottleSnoopingMiddleware
 {
@@ -14,7 +14,7 @@ class ThrottleSnoopingMiddleware
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
@@ -34,12 +34,8 @@ class ThrottleSnoopingMiddleware
         return $response;
     }
 
-    protected function looksLikeSnooping($response): bool
+    protected function looksLikeSnooping(Response $response): bool
     {
-        return $response instanceof SymfonyResponse
-            && in_array(
-                $response->getStatusCode(),
-                config('throttle-snooping.status_codes', [])
-            );
+        return in_array($response->getStatusCode(), config('throttle-snooping.status_codes', []));
     }
 }
