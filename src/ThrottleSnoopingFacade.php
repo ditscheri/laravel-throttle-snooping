@@ -11,6 +11,6 @@ class ThrottleSnoopingFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'laravel-throttle-snooping';
+        return ThrottleSnooping::class;
     }
 }
